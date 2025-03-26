@@ -1,0 +1,20 @@
+# Unity auto-generated folders
+[Ll]ibrary/
+[Tt]emp/
+[Bb]uild/
+[Bb]uilds/
+[Oo]bj/
+[Mm]emoryCaptures/
+
+# OS / IDE
+.DS_Store
+.idea/
+.vscode/
+
+# User-specific
+*.user
+*.suo
+*.userprefs
+
+# Google Cloud API Key
+Assets/StreamingAssets/key.json
