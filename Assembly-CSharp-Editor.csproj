@@ -42,19 +42,33 @@
   </PropertyGroup>
   <ItemGroup>
     <Analyzer Include="/Users/usman/Desktop/fyp/Assets/Packages/Microsoft.Extensions.Logging.Abstractions.6.0.0/analyzers/dotnet/roslyn4.0/cs/tr/Microsoft.Extensions.Logging.Generators.resources.dll" />
+    <Analyzer Include="/Users/usman/Desktop/fyp/Assets/Packages/System.Text.Json.8.0.5/analyzers/dotnet/roslyn4.0/cs/ja/System.Text.Json.SourceGeneration.resources.dll" />
+    <Analyzer Include="/Users/usman/Desktop/fyp/Assets/Packages/System.Text.Json.8.0.5/analyzers/dotnet/roslyn4.0/cs/zh-Hant/System.Text.Json.SourceGeneration.resources.dll" />
+    <Analyzer Include="/Users/usman/Desktop/fyp/Assets/Packages/System.Text.Json.8.0.5/analyzers/dotnet/roslyn4.0/cs/ru/System.Text.Json.SourceGeneration.resources.dll" />
     <Analyzer Include="/Users/usman/Desktop/fyp/Assets/Packages/Microsoft.Extensions.Logging.Abstractions.6.0.0/analyzers/dotnet/roslyn4.0/cs/ru/Microsoft.Extensions.Logging.Generators.resources.dll" />
+    <Analyzer Include="/Users/usman/Desktop/fyp/Assets/Packages/System.Text.Json.8.0.5/analyzers/dotnet/roslyn4.0/cs/pl/System.Text.Json.SourceGeneration.resources.dll" />
+    <Analyzer Include="/Users/usman/Desktop/fyp/Assets/Packages/System.Text.Json.8.0.5/analyzers/dotnet/roslyn4.0/cs/System.Text.Json.SourceGeneration.dll" />
     <Analyzer Include="/Users/usman/Desktop/fyp/Assets/Packages/Microsoft.Extensions.Logging.Abstractions.6.0.0/analyzers/dotnet/roslyn4.0/cs/es/Microsoft.Extensions.Logging.Generators.resources.dll" />
-    <Analyzer Include="/Users/usman/Desktop/fyp/Assets/Packages/Microsoft.Extensions.Logging.Abstractions.6.0.0/analyzers/dotnet/roslyn4.0/cs/de/Microsoft.Extensions.Logging.Generators.resources.dll" />
-    <Analyzer Include="/Users/usman/Desktop/fyp/Assets/Packages/Microsoft.Extensions.Logging.Abstractions.6.0.0/analyzers/dotnet/roslyn4.0/cs/zh-Hans/Microsoft.Extensions.Logging.Generators.resources.dll" />
     <Analyzer Include="/Users/usman/Desktop/fyp/Assets/Packages/Microsoft.Extensions.Logging.Abstractions.6.0.0/analyzers/dotnet/roslyn4.0/cs/ko/Microsoft.Extensions.Logging.Generators.resources.dll" />
-    <Analyzer Include="/Users/usman/Desktop/fyp/Assets/Packages/Microsoft.Extensions.Logging.Abstractions.6.0.0/analyzers/dotnet/roslyn4.0/cs/pl/Microsoft.Extensions.Logging.Generators.resources.dll" />
+    <Analyzer Include="/Users/usman/Desktop/fyp/Assets/Packages/Microsoft.Extensions.Logging.Abstractions.6.0.0/analyzers/dotnet/roslyn4.0/cs/de/Microsoft.Extensions.Logging.Generators.resources.dll" />
+    <Analyzer Include="/Users/usman/Desktop/fyp/Assets/Packages/System.Text.Json.8.0.5/analyzers/dotnet/roslyn4.0/cs/es/System.Text.Json.SourceGeneration.resources.dll" />
+    <Analyzer Include="/Users/usman/Desktop/fyp/Assets/Packages/System.Text.Json.8.0.5/analyzers/dotnet/roslyn4.0/cs/pt-BR/System.Text.Json.SourceGeneration.resources.dll" />
+    <Analyzer Include="/Users/usman/Desktop/fyp/Assets/Packages/System.Text.Json.8.0.5/analyzers/dotnet/roslyn4.0/cs/zh-Hans/System.Text.Json.SourceGeneration.resources.dll" />
     <Analyzer Include="/Users/usman/Desktop/fyp/Assets/Packages/Microsoft.Extensions.Logging.Abstractions.6.0.0/analyzers/dotnet/roslyn4.0/cs/Microsoft.Extensions.Logging.Generators.dll" />
     <Analyzer Include="/Users/usman/Desktop/fyp/Assets/Packages/Microsoft.Extensions.Logging.Abstractions.6.0.0/analyzers/dotnet/roslyn4.0/cs/ja/Microsoft.Extensions.Logging.Generators.resources.dll" />
+    <Analyzer Include="/Users/usman/Desktop/fyp/Assets/Packages/System.Text.Json.8.0.5/analyzers/dotnet/roslyn4.0/cs/fr/System.Text.Json.SourceGeneration.resources.dll" />
+    <Analyzer Include="/Users/usman/Desktop/fyp/Assets/Packages/System.Text.Json.8.0.5/analyzers/dotnet/roslyn4.0/cs/de/System.Text.Json.SourceGeneration.resources.dll" />
     <Analyzer Include="/Users/usman/Desktop/fyp/Assets/Packages/Microsoft.Extensions.Logging.Abstractions.6.0.0/analyzers/dotnet/roslyn4.0/cs/pt-BR/Microsoft.Extensions.Logging.Generators.resources.dll" />
     <Analyzer Include="/Users/usman/Desktop/fyp/Assets/Packages/Microsoft.Extensions.Logging.Abstractions.6.0.0/analyzers/dotnet/roslyn4.0/cs/cs/Microsoft.Extensions.Logging.Generators.resources.dll" />
+    <Analyzer Include="/Users/usman/Desktop/fyp/Assets/Packages/Microsoft.Extensions.Logging.Abstractions.6.0.0/analyzers/dotnet/roslyn4.0/cs/pl/Microsoft.Extensions.Logging.Generators.resources.dll" />
+    <Analyzer Include="/Users/usman/Desktop/fyp/Assets/Packages/System.Text.Json.8.0.5/analyzers/dotnet/roslyn4.0/cs/it/System.Text.Json.SourceGeneration.resources.dll" />
     <Analyzer Include="/Users/usman/Desktop/fyp/Assets/Packages/Microsoft.Extensions.Logging.Abstractions.6.0.0/analyzers/dotnet/roslyn4.0/cs/zh-Hant/Microsoft.Extensions.Logging.Generators.resources.dll" />
+    <Analyzer Include="/Users/usman/Desktop/fyp/Assets/Packages/Microsoft.Extensions.Logging.Abstractions.6.0.0/analyzers/dotnet/roslyn4.0/cs/zh-Hans/Microsoft.Extensions.Logging.Generators.resources.dll" />
     <Analyzer Include="/Users/usman/Desktop/fyp/Assets/Packages/Microsoft.Extensions.Logging.Abstractions.6.0.0/analyzers/dotnet/roslyn4.0/cs/fr/Microsoft.Extensions.Logging.Generators.resources.dll" />
+    <Analyzer Include="/Users/usman/Desktop/fyp/Assets/Packages/System.Text.Json.8.0.5/analyzers/dotnet/roslyn4.0/cs/tr/System.Text.Json.SourceGeneration.resources.dll" />
     <Analyzer Include="/Users/usman/Desktop/fyp/Assets/Packages/Microsoft.Extensions.Logging.Abstractions.6.0.0/analyzers/dotnet/roslyn4.0/cs/it/Microsoft.Extensions.Logging.Generators.resources.dll" />
+    <Analyzer Include="/Users/usman/Desktop/fyp/Assets/Packages/System.Text.Json.8.0.5/analyzers/dotnet/roslyn4.0/cs/cs/System.Text.Json.SourceGeneration.resources.dll" />
+    <Analyzer Include="/Users/usman/Desktop/fyp/Assets/Packages/System.Text.Json.8.0.5/analyzers/dotnet/roslyn4.0/cs/ko/System.Text.Json.SourceGeneration.resources.dll" />
     <Analyzer Include="/Applications/Unity/Hub/Editor/6000.0.41f1/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll" />
     <Analyzer Include="/Applications/Unity/Hub/Editor/6000.0.41f1/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll" />
     <Analyzer Include="/Applications/Unity/Hub/Editor/6000.0.41f1/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.UIToolkit.SourceGenerator.dll" />
@@ -428,8 +442,14 @@
     <Reference Include="UnityEditor.Android.Extensions">
       <HintPath>/Applications/Unity/Hub/Editor/6000.0.41f1/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="Google.Apis">
+      <HintPath>/Users/usman/Desktop/fyp/Assets/Packages/Google.Apis.1.67.0/lib/netstandard2.0/Google.Apis.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.VisualScripting.YamlDotNet">
       <HintPath>/Users/usman/Desktop/fyp/Library/PackageCache/com.unity.visualscripting@1b53f46e931b/Editor/VisualScripting.Core/Dependencies/YamlDotNet/Unity.VisualScripting.YamlDotNet.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Api.Gax.Grpc">
+      <HintPath>/Users/usman/Desktop/fyp/Assets/Packages/Google.Api.Gax.Grpc.4.8.0/lib/netstandard2.0/Google.Api.Gax.Grpc.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Collections.LowLevel.ILSupport">
       <HintPath>/Users/usman/Desktop/fyp/Library/PackageCache/com.unity.collections@56bff8827a7e/Unity.Collections.LowLevel.ILSupport/Unity.Collections.LowLevel.ILSupport.dll</HintPath>
@@ -437,14 +457,59 @@
     <Reference Include="nunit.framework">
       <HintPath>/Users/usman/Desktop/fyp/Library/PackageCache/com.unity.ext.nunit@60ef35ffd3cd/net40/unity-custom/nunit.framework.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.IdentityModel.JsonWebTokens">
+      <HintPath>/Users/usman/Desktop/fyp/Assets/Packages/Microsoft.IdentityModel.JsonWebTokens.8.8.0/lib/netstandard2.0/Microsoft.IdentityModel.JsonWebTokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.TimeProvider">
+      <HintPath>/Users/usman/Desktop/fyp/Assets/Packages/Microsoft.Bcl.TimeProvider.8.0.1/lib/netstandard2.0/Microsoft.Bcl.TimeProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Api.CommonProtos">
+      <HintPath>/Users/usman/Desktop/fyp/Assets/Packages/Google.Api.CommonProtos.2.15.0/lib/netstandard2.0/Google.Api.CommonProtos.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces">
+      <HintPath>/Users/usman/Desktop/fyp/Assets/Packages/Microsoft.Bcl.AsyncInterfaces.8.0.0/lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
     <Reference Include="unityplastic">
       <HintPath>/Users/usman/Desktop/fyp/Library/PackageCache/com.unity.collab-proxy@50ac96531b63/Lib/Editor/unityplastic.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Plastic.Antlr3.Runtime">
       <HintPath>/Users/usman/Desktop/fyp/Library/PackageCache/com.unity.collab-proxy@50ac96531b63/Lib/Editor/Unity.Plastic.Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.IdentityModel.Abstractions">
+      <HintPath>/Users/usman/Desktop/fyp/Assets/Packages/Microsoft.IdentityModel.Abstractions.8.8.0/lib/netstandard2.0/Microsoft.IdentityModel.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.Memory">
+      <HintPath>/Users/usman/Desktop/fyp/Assets/Packages/Microsoft.Bcl.Memory.9.0.0/lib/netstandard2.1/Microsoft.Bcl.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management">
+      <HintPath>/Users/usman/Desktop/fyp/Assets/Packages/System.Management.7.0.2/lib/netstandard2.0/System.Management.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf">
+      <HintPath>/Users/usman/Desktop/fyp/Assets/Packages/Google.Protobuf.3.25.0/lib/netstandard2.0/Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="Grpc.Core">
+      <HintPath>/Users/usman/Desktop/fyp/Assets/Packages/Grpc.Core.2.46.6/lib/netstandard2.0/Grpc.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.LongRunning">
+      <HintPath>/Users/usman/Desktop/fyp/Assets/Packages/Google.LongRunning.3.2.0/lib/netstandard2.0/Google.LongRunning.dll</HintPath>
+    </Reference>
+    <Reference Include="Grpc.Net.Client">
+      <HintPath>/Users/usman/Desktop/fyp/Assets/Packages/Grpc.Net.Client.2.60.0/lib/netstandard2.1/Grpc.Net.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Grpc.Core.Api">
+      <HintPath>/Users/usman/Desktop/fyp/Assets/Packages/Grpc.Core.Api.2.60.0/lib/netstandard2.1/Grpc.Core.Api.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Api.Gax">
+      <HintPath>/Users/usman/Desktop/fyp/Assets/Packages/Google.Api.Gax.4.8.0/lib/netstandard2.0/Google.Api.Gax.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Plastic.Newtonsoft.Json">
       <HintPath>/Users/usman/Desktop/fyp/Library/PackageCache/com.unity.collab-proxy@50ac96531b63/Lib/Editor/Unity.Plastic.Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Core">
+      <HintPath>/Users/usman/Desktop/fyp/Assets/Packages/Google.Apis.Core.1.67.0/lib/netstandard2.0/Google.Apis.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Auth">
+      <HintPath>/Users/usman/Desktop/fyp/Assets/Packages/Google.Apis.Auth.1.67.0/lib/netstandard2.0/Google.Apis.Auth.dll</HintPath>
     </Reference>
     <Reference Include="log4netPlastic">
       <HintPath>/Users/usman/Desktop/fyp/Library/PackageCache/com.unity.collab-proxy@50ac96531b63/Lib/Editor/log4netPlastic.dll</HintPath>
@@ -452,8 +517,41 @@
     <Reference Include="Unity.VisualScripting.IonicZip">
       <HintPath>/Users/usman/Desktop/fyp/Library/PackageCache/com.unity.visualscripting@1b53f46e931b/Editor/VisualScripting.Core/Dependencies/DotNetZip/Unity.VisualScripting.IonicZip.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe">
+      <HintPath>/Users/usman/Desktop/fyp/Assets/Packages/System.Runtime.CompilerServices.Unsafe.6.0.0/lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions">
+      <HintPath>/Users/usman/Desktop/fyp/Assets/Packages/Microsoft.Extensions.DependencyInjection.Abstractions.6.0.0/lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Cng">
+      <HintPath>/Users/usman/Desktop/fyp/Assets/Packages/System.Security.Cryptography.Cng.4.5.0/lib/netstandard2.0/System.Security.Cryptography.Cng.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web">
+      <HintPath>/Users/usman/Desktop/fyp/Assets/Packages/System.Text.Encodings.Web.8.0.0/lib/netstandard2.0/System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
       <HintPath>/Users/usman/Desktop/fyp/Library/PackageCache/com.unity.visualscripting@1b53f46e931b/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IdentityModel.Tokens.Jwt">
+      <HintPath>/Users/usman/Desktop/fyp/Assets/Packages/System.IdentityModel.Tokens.Jwt.8.8.0/lib/netstandard2.0/System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions">
+      <HintPath>/Users/usman/Desktop/fyp/Assets/Packages/Microsoft.Extensions.Logging.Abstractions.6.0.0/lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Cloud.Speech.V1">
+      <HintPath>/Users/usman/Desktop/fyp/Assets/Packages/Google.Cloud.Speech.V1.3.8.0/lib/netstandard2.0/Google.Cloud.Speech.V1.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.DiagnosticSource">
+      <HintPath>/Users/usman/Desktop/fyp/Assets/Packages/System.Diagnostics.DiagnosticSource.6.0.2/lib/netstandard2.0/System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens">
+      <HintPath>/Users/usman/Desktop/fyp/Assets/Packages/Microsoft.IdentityModel.Tokens.8.8.0/lib/netstandard2.0/Microsoft.IdentityModel.Tokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Grpc.Net.Common">
+      <HintPath>/Users/usman/Desktop/fyp/Assets/Packages/Grpc.Net.Common.2.60.0/lib/netstandard2.1/Grpc.Net.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="NuGetForUnity.PluginAPI">
+      <HintPath>/Users/usman/Desktop/fyp/Assets/NuGet/Editor/NuGetForUnity.PluginAPI.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>/Users/usman/Desktop/fyp/Library/PackageCache/com.unity.nuget.newtonsoft-json@74deb55db2a0/Runtime/Newtonsoft.Json.dll</HintPath>
@@ -461,71 +559,20 @@
     <Reference Include="Unity.VisualScripting.TextureAssets">
       <HintPath>/Users/usman/Desktop/fyp/Library/PackageCache/com.unity.visualscripting@1b53f46e931b/Editor/VisualScripting.Core/EditorAssetResources/Unity.VisualScripting.TextureAssets.dll</HintPath>
     </Reference>
+    <Reference Include="Grpc.Auth">
+      <HintPath>/Users/usman/Desktop/fyp/Assets/Packages/Grpc.Auth.2.60.0/lib/netstandard2.0/Grpc.Auth.dll</HintPath>
+    </Reference>
     <Reference Include="Mono.Cecil">
       <HintPath>/Users/usman/Desktop/fyp/Library/PackageCache/com.unity.nuget.mono-cecil@d6f9955a5d5f/Mono.Cecil.dll</HintPath>
-    </Reference>
-    <Reference Include="NuGetForUnity.PluginAPI">
-      <HintPath>/Users/usman/Desktop/fyp/Assets/NuGet/Editor/NuGetForUnity.PluginAPI.dll</HintPath>
     </Reference>
     <Reference Include="NugetForUnity">
       <HintPath>/Users/usman/Desktop/fyp/Assets/NuGet/Editor/NugetForUnity.dll</HintPath>
     </Reference>
-    <Reference Include="Google.Apis.Auth">
-      <HintPath>/Users/usman/Desktop/fyp/Assets/Packages/Google.Apis.Auth.1.67.0/lib/netstandard2.0/Google.Apis.Auth.dll</HintPath>
+    <Reference Include="Microsoft.IdentityModel.Logging">
+      <HintPath>/Users/usman/Desktop/fyp/Assets/Packages/Microsoft.IdentityModel.Logging.8.8.0/lib/netstandard2.0/Microsoft.IdentityModel.Logging.dll</HintPath>
     </Reference>
-    <Reference Include="Google.Api.Gax">
-      <HintPath>/Users/usman/Desktop/fyp/Assets/Packages/Google.Api.Gax.4.8.0/lib/netstandard2.0/Google.Api.Gax.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.Cloud.Speech.V1">
-      <HintPath>/Users/usman/Desktop/fyp/Assets/Packages/Google.Cloud.Speech.V1.3.8.0/lib/netstandard2.0/Google.Cloud.Speech.V1.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.Apis.Core">
-      <HintPath>/Users/usman/Desktop/fyp/Assets/Packages/Google.Apis.Core.1.67.0/lib/netstandard2.0/Google.Apis.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.Protobuf">
-      <HintPath>/Users/usman/Desktop/fyp/Assets/Packages/Google.Protobuf.3.25.0/lib/netstandard2.0/Google.Protobuf.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.Apis">
-      <HintPath>/Users/usman/Desktop/fyp/Assets/Packages/Google.Apis.1.67.0/lib/netstandard2.0/Google.Apis.dll</HintPath>
-    </Reference>
-    <Reference Include="Grpc.Net.Common">
-      <HintPath>/Users/usman/Desktop/fyp/Assets/Packages/Grpc.Net.Common.2.60.0/lib/netstandard2.1/Grpc.Net.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="Grpc.Core.Api">
-      <HintPath>/Users/usman/Desktop/fyp/Assets/Packages/Grpc.Core.Api.2.60.0/lib/netstandard2.1/Grpc.Core.Api.dll</HintPath>
-    </Reference>
-    <Reference Include="Grpc.Net.Client">
-      <HintPath>/Users/usman/Desktop/fyp/Assets/Packages/Grpc.Net.Client.2.60.0/lib/netstandard2.1/Grpc.Net.Client.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Bcl.AsyncInterfaces">
-      <HintPath>/Users/usman/Desktop/fyp/Assets/Packages/Microsoft.Bcl.AsyncInterfaces.6.0.0/lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Diagnostics.DiagnosticSource">
-      <HintPath>/Users/usman/Desktop/fyp/Assets/Packages/System.Diagnostics.DiagnosticSource.6.0.1/lib/netstandard2.0/System.Diagnostics.DiagnosticSource.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.Api.CommonProtos">
-      <HintPath>/Users/usman/Desktop/fyp/Assets/Packages/Google.Api.CommonProtos.2.15.0/lib/netstandard2.0/Google.Api.CommonProtos.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.Api.Gax.Grpc">
-      <HintPath>/Users/usman/Desktop/fyp/Assets/Packages/Google.Api.Gax.Grpc.4.8.0/lib/netstandard2.0/Google.Api.Gax.Grpc.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Extensions.Logging.Abstractions">
-      <HintPath>/Users/usman/Desktop/fyp/Assets/Packages/Microsoft.Extensions.Logging.Abstractions.6.0.0/lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
-    </Reference>
-    <Reference Include="Grpc.Auth">
-      <HintPath>/Users/usman/Desktop/fyp/Assets/Packages/Grpc.Auth.2.60.0/lib/netstandard2.0/Grpc.Auth.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Management">
-      <HintPath>/Users/usman/Desktop/fyp/Assets/Packages/System.Management.7.0.2/lib/netstandard2.0/System.Management.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Runtime.CompilerServices.Unsafe">
-      <HintPath>/Users/usman/Desktop/fyp/Assets/Packages/System.Runtime.CompilerServices.Unsafe.6.0.0/lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.LongRunning">
-      <HintPath>/Users/usman/Desktop/fyp/Assets/Packages/Google.LongRunning.3.2.0/lib/netstandard2.0/Google.LongRunning.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions">
-      <HintPath>/Users/usman/Desktop/fyp/Assets/Packages/Microsoft.Extensions.DependencyInjection.Abstractions.6.0.0/lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    <Reference Include="System.Text.Json">
+      <HintPath>/Users/usman/Desktop/fyp/Assets/Packages/System.Text.Json.8.0.5/lib/netstandard2.0/System.Text.Json.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Android.Types">
       <HintPath>/Applications/Unity/Hub/Editor/6000.0.41f1/PlaybackEngines/AndroidPlayer/Unity.Android.Types.dll</HintPath>
