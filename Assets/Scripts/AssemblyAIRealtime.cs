@@ -13,6 +13,13 @@ public class AssemblyAIRealtime : MonoBehaviour
 
     private WebSocket websocket;
     private bool isConnected = false;
+    
+    // private string fullTranscript = "";
+    public TMPro.TextMeshProUGUI subtitleText;
+
+    private string transcriptBuffer = "";
+    private readonly object transcriptLock = new object();
+    
 
     void Start()
     {
@@ -55,9 +62,17 @@ public class AssemblyAIRealtime : MonoBehaviour
             {
                 var json = JsonUtility.FromJson<TranscriptMessage>(message);
                 if (json != null && !string.IsNullOrEmpty(json.text) &&
-                    (json.message_type == "PartialTranscript" || json.message_type == "FinalTranscript"))
+                    json.message_type == "FinalTranscript")
                 {
                     Debug.Log("📝 Transcript: " + json.text);
+                    lock (transcriptLock)
+                    {
+                        if (!string.IsNullOrEmpty(json.text))
+                        {
+                            // Just show the full final message as it was transcribed
+                            transcriptBuffer = json.text;
+                        }
+                    }
                 }
             }
             catch (Exception e)
@@ -65,6 +80,18 @@ public class AssemblyAIRealtime : MonoBehaviour
                 Debug.LogError("❌ Failed to parse message: " + e.Message);
             }
         });
+    }
+
+    void Update()
+    {
+        lock (transcriptLock)
+        {
+            if (!string.IsNullOrEmpty(transcriptBuffer))
+            {
+                subtitleText.text = transcriptBuffer;
+                transcriptBuffer = "";
+            }
+        }
     }
 
     [Serializable]
