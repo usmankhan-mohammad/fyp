@@ -36,15 +36,15 @@ public class AssemblyAIRealtime : MonoBehaviour
         };
         websocket = new WebSocket(url, headers);
         websocket.OnOpen += () => {
-            Debug.Log("✅ WebSocket connection opened");
+            Debug.Log("WebSocket connection opened");
             isConnected = true;
-            Debug.Log("🚀 Connected — starting audio stream");
+            Debug.Log("Connected — starting audio stream");
             StartCoroutine(SendAudioChunks());
         };
 
-        websocket.OnError += (e) => Debug.LogError("❌ WebSocket Error: " + e);
+        websocket.OnError += (e) => Debug.LogError("WebSocket Error: " + e);
 
-        websocket.OnClose += (e) => Debug.Log("❌ WebSocket Closed");
+        websocket.OnClose += (e) => Debug.Log("WebSocket Closed");
 
         websocket.OnMessage += OnWebSocketMessage;
 
@@ -56,7 +56,7 @@ public class AssemblyAIRealtime : MonoBehaviour
         Task.Run(() =>
         {
             string message = Encoding.UTF8.GetString(bytes, offset, length);
-            //Debug.Log("🧠 Full JSON: " + message);
+            //Debug.Log("Full JSON: " + message);
 
             try
             {
@@ -64,7 +64,7 @@ public class AssemblyAIRealtime : MonoBehaviour
                 if (json != null && !string.IsNullOrEmpty(json.text) &&
                     json.message_type == "FinalTranscript")
                 {
-                    Debug.Log("📝 Transcript: " + json.text);
+                    Debug.Log("Transcript: " + json.text);
                     lock (transcriptLock)
                     {
                         if (!string.IsNullOrEmpty(json.text))
@@ -77,7 +77,7 @@ public class AssemblyAIRealtime : MonoBehaviour
             }
             catch (Exception e)
             {
-                Debug.LogError("❌ Failed to parse message: " + e.Message);
+                Debug.LogError("Failed to parse message: " + e.Message);
             }
         });
     }
@@ -103,7 +103,7 @@ public class AssemblyAIRealtime : MonoBehaviour
 
     IEnumerator SendAudioChunks()
     {
-        Debug.Log("🎙️ SendAudioChunks coroutine started");
+        Debug.Log("SendAudioChunks coroutine started");
 
         while (true)
         {
@@ -121,7 +121,7 @@ public class AssemblyAIRealtime : MonoBehaviour
             }
             else
             {
-                Debug.Log("⚠️ No audio chunk to send");
+                Debug.Log("No audio chunk to send");
             }
 
             yield return new WaitForSeconds(0.1f);
