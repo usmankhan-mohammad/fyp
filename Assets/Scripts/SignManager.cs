@@ -23,12 +23,22 @@ public class SignManager : MonoBehaviour
     // Dictionary mapping letters to fingerspelling sprites (e.g., 'h' -> h.png)
     private Dictionary<char, Sprite> charToFingerspell = new Dictionary<char, Sprite>();
 
+    private Dictionary<string, Sprite> phraseToSign = new Dictionary<string, Sprite>();
+
+    private Dictionary<string, string> synonymMap = new Dictionary<string, string>();
+
     void Awake()
     {
         // Setup singleton instance and load all signs/alphabet at startup
         if (Instance == null) Instance = this;
         LoadSigns();
         LoadAlphabet();
+    }
+
+    void Start()
+    {
+        // Example manual phrase registration
+        ManualSignLibrary.RegisterPhrases(this);
     }
 
     void LoadSigns()
@@ -67,6 +77,22 @@ public class SignManager : MonoBehaviour
     public bool TryGetSign(string word, out Sprite sign)
     {
         string key = word.ToLower();
+
+        // Check if the entire input contains a known phrase
+        foreach (var phrase in phraseToSign.Keys.OrderByDescending(p => p.Length))
+        {
+            if (key.Contains(phrase))
+            {
+                sign = phraseToSign[phrase];
+                Debug.Log($"[SignManager] Phrase match found in input: '{phrase}'");
+                return true;
+            }
+        }
+
+        // Resolve synonym
+        if (synonymMap.TryGetValue(key, out var canonicalWord))
+            key = canonicalWord;
+
         bool found = wordToSign.TryGetValue(key, out sign);
         Debug.Log($"[SignManager] Lookup '{key}' → {(found ? "FOUND" : "NOT FOUND")}");
         return found;
@@ -113,4 +139,38 @@ public class SignManager : MonoBehaviour
         // Create a new sprite from the flipped texture, using the same rect and pivot
         return Sprite.Create(flipped, original.rect, new Vector2(0.5f, 0.5f));
     }
+
+    public void RegisterPhrase(string phraseKey, Sprite phraseSprite)
+    {
+        string key = phraseKey.ToLower().Trim();
+        if (!phraseToSign.ContainsKey(key))
+        {
+            phraseToSign.Add(key, phraseSprite);
+        }
+    }
+    
+    public void RegisterWord(string word, Sprite sprite)
+    {
+        string key = word.ToLower().Trim();
+        if (!wordToSign.ContainsKey(key))
+            wordToSign.Add(key, sprite);
+    }
+
+    public bool TryGetPhrase(string subtitle, out Sprite phraseSign)
+    {
+        string key = subtitle.ToLower().Trim();
+        bool found = phraseToSign.TryGetValue(key, out phraseSign);
+        Debug.Log($"[SignManager] Phrase Lookup '{key}' → {(found ? "FOUND" : "NOT FOUND")}");
+        return found;
+    }
+
+    public void RegisterSynonym(string synonym, string canonicalWord)
+    {
+        string key = synonym.ToLower().Trim();
+        string value = canonicalWord.ToLower().Trim();
+
+        if (!synonymMap.ContainsKey(key))
+            synonymMap.Add(key, value);
+    }
+    
 }

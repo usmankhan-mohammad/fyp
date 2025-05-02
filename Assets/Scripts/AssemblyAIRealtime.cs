@@ -5,6 +5,7 @@ using UnityEngine;
 using Meta.Net.NativeWebSocket;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine.InputSystem;
 
 public class AssemblyAIRealtime : MonoBehaviour
 {
@@ -20,11 +21,15 @@ public class AssemblyAIRealtime : MonoBehaviour
 
     private string transcriptBuffer = "";
     private readonly object transcriptLock = new object();
+    // private InputSystem_Actions inputActions;
     
 
     void Start()
     {
         _ = ConnectToAssemblyAI();
+        
+        // var inputActions = new InputSystem_Actions();
+        // inputActions.UI.Enable();
     }
 
     private async Task ConnectToAssemblyAI()
@@ -85,6 +90,11 @@ public class AssemblyAIRealtime : MonoBehaviour
 
     void Update()
     {
+        // Debug log for mouse scroll value
+        if (Mouse.current != null && Mouse.current.scroll.ReadValue().y != 0)
+        {
+            Debug.Log($"[MouseScroll] Scroll value: {Mouse.current.scroll.ReadValue().y}");
+        }
         lock (transcriptLock)
         {
             if (!string.IsNullOrEmpty(transcriptBuffer))
@@ -136,32 +146,57 @@ public class AssemblyAIRealtime : MonoBehaviour
     void DisplaySignsFor(string text)
     {
         List<Sprite> signsToShow = new List<Sprite>();
-
         Debug.Log($"[DisplaySignsFor] Input text: {text}");
 
-        string[] words = text.Split(' ');
-        foreach (string word in words)
-        {
-            string cleanWord = word.ToLower().TrimEnd('.', ',', '!', '?');
-            Debug.Log($"[DisplaySignsFor] Processing word: {cleanWord}");
+        text = text.ToLower().Trim();
+        text = System.Text.RegularExpressions.Regex.Replace(text, @"[^a-zA-Z0-9\s']", "");
 
-            if (SignManager.Instance.TryGetSign(cleanWord, out var sign))
+        List<string> words = new List<string>(text.Split(' '));
+        int i = 0;
+
+        while (i < words.Count)
+        {
+            bool matched = false;
+
+            // Try to find the longest matching phrase starting from index i
+            for (int len = words.Count - i; len > 0; len--)
             {
-                Debug.Log($"[DisplaySignsFor] Found sign for: {cleanWord}");
-                signsToShow.Add(sign);
-            }
-            else
-            {
-                var fingerSpelling = SignManager.Instance.GetFingerspelling(cleanWord);
-                if (fingerSpelling.Count > 0)
+                string segment = string.Join(" ", words.GetRange(i, len));
+                if (SignManager.Instance.TryGetPhrase(segment, out var phraseSprite))
                 {
-                    Debug.Log($"[DisplaySignsFor] Using fingerspelling for: {cleanWord}");
-                    signsToShow.AddRange(fingerSpelling);
+                    Debug.Log($"[DisplaySignsFor] Found phrase: {segment}");
+                    signsToShow.Add(phraseSprite);
+                    i += len;
+                    matched = true;
+                    break;
+                }
+            }
+
+            if (!matched)
+            {
+                string word = words[i].Trim().ToLower();
+                Debug.Log($"[DisplaySignsFor] Processing word: {word}");
+
+                if (SignManager.Instance.TryGetSign(word, out var wordSprite))
+                {
+                    Debug.Log($"[DisplaySignsFor] Found word: {word}");
+                    signsToShow.Add(wordSprite);
                 }
                 else
                 {
-                    Debug.LogWarning($"[DisplaySignsFor] No sign or fingerspelling for: {cleanWord}");
+                    var fingerSpelling = SignManager.Instance.GetFingerspelling(word);
+                    if (fingerSpelling.Count > 0)
+                    {
+                        Debug.Log($"[DisplaySignsFor] Using fingerspelling for: {word}");
+                        signsToShow.AddRange(fingerSpelling);
+                    }
+                    else
+                    {
+                        Debug.LogWarning($"[DisplaySignsFor] No sign or fingerspelling for: {word}");
+                    }
                 }
+
+                i++;
             }
         }
 

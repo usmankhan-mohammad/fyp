@@ -21,6 +21,11 @@ public class SignDisplayUI : MonoBehaviour
             var img = go.GetComponent<Image>();
             img.sprite = sprite;
             img.preserveAspect = true;
+            var rt = img.GetComponent<RectTransform>();
+            float panelHeight = ((RectTransform)contentPanel).rect.height;
+            float minHeight = 300; // or whatever minimum you prefer
+            float dynamicHeight = Mathf.Max(minHeight, panelHeight * 0.9f);
+            rt.sizeDelta = new Vector2(rt.sizeDelta.x, dynamicHeight);
         }
 
         // 🧠 Force scroll to the left after layout updates
