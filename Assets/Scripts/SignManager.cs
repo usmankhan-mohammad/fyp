@@ -66,7 +66,10 @@ public class SignManager : MonoBehaviour
     // Try to find a sign for a given word
     public bool TryGetSign(string word, out Sprite sign)
     {
-        return wordToSign.TryGetValue(word.ToLower(), out sign);
+        string key = word.ToLower();
+        bool found = wordToSign.TryGetValue(key, out sign);
+        Debug.Log($"[SignManager] Lookup '{key}' → {(found ? "FOUND" : "NOT FOUND")}");
+        return found;
     }
 
     // Generate fingerspelling sprite list for a word (if sign doesn't exist)

@@ -10,6 +10,7 @@ public class AssemblyAIRealtime : MonoBehaviour
 {
     public MicrophoneRecorder micRecorder;
     public string apiKey = "f3c03309258a4d3e8eecc6707d46bdfb";
+    public SignDisplayUI signDisplayUI;
 
     private WebSocket websocket;
     private bool isConnected = false;
@@ -90,6 +91,10 @@ public class AssemblyAIRealtime : MonoBehaviour
             {
                 subtitleText.text = transcriptBuffer;
                 transcriptBuffer = "";
+                if (signDisplayUI != null)
+                {
+                    DisplaySignsFor(subtitleText.text);
+                }
             }
         }
     }
@@ -126,6 +131,41 @@ public class AssemblyAIRealtime : MonoBehaviour
 
             yield return new WaitForSeconds(0.1f);
         }
+    }
+
+    void DisplaySignsFor(string text)
+    {
+        List<Sprite> signsToShow = new List<Sprite>();
+
+        Debug.Log($"[DisplaySignsFor] Input text: {text}");
+
+        string[] words = text.Split(' ');
+        foreach (string word in words)
+        {
+            string cleanWord = word.ToLower().TrimEnd('.', ',', '!', '?');
+            Debug.Log($"[DisplaySignsFor] Processing word: {cleanWord}");
+
+            if (SignManager.Instance.TryGetSign(cleanWord, out var sign))
+            {
+                Debug.Log($"[DisplaySignsFor] Found sign for: {cleanWord}");
+                signsToShow.Add(sign);
+            }
+            else
+            {
+                var fingerSpelling = SignManager.Instance.GetFingerspelling(cleanWord);
+                if (fingerSpelling.Count > 0)
+                {
+                    Debug.Log($"[DisplaySignsFor] Using fingerspelling for: {cleanWord}");
+                    signsToShow.AddRange(fingerSpelling);
+                }
+                else
+                {
+                    Debug.LogWarning($"[DisplaySignsFor] No sign or fingerspelling for: {cleanWord}");
+                }
+            }
+        }
+
+        signDisplayUI.DisplaySigns(signsToShow);
     }
 
     private async void OnApplicationQuit()
