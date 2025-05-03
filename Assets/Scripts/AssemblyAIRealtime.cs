@@ -31,10 +31,6 @@ public class AssemblyAIRealtime : MonoBehaviour
         
         // var inputActions = new InputSystem_Actions();
         // inputActions.UI.Enable();
-        
-        var grabInteractable = GetComponent<HandGrabInteractable>();
-        grabInteractable.WhenSelect.AddListener(OnGrabStart);
-        grabInteractable.WhenUnselect.AddListener(OnGrabEnd);
     }
 
     private async Task ConnectToAssemblyAI()

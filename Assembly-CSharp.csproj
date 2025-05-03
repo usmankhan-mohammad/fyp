@@ -74,14 +74,15 @@
     <Analyzer Include="/Applications/Unity/Hub/Editor/6000.0.41f1/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets/Scripts/UIDragResize.cs" />
     <Compile Include="Assets/Scripts/SignManager.cs" />
+    <Compile Include="Assets/Scripts/SignPanelGrabHandler.cs" />
     <Compile Include="Assets/Scripts/MicTest.cs" />
     <Compile Include="Assets/Scripts/AssemblyAIRealtime.cs" />
     <Compile Include="Assets/TutorialInfo/Scripts/Readme.cs" />
     <Compile Include="Assets/Scripts/DisableGrabbableOnUIHover.cs" />
     <Compile Include="Assets/Scripts/SignDisplayUI.cs" />
     <Compile Include="Assets/Scripts/MicrophoneRecorder.cs" />
-    <Compile Include="Assets/Scripts/VRResizeHandle.cs" />
     <Compile Include="Assets/Scripts/SignTestRunner.cs" />
     <Compile Include="Assets/Scripts/ManualSignLibrary.cs" />
     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
