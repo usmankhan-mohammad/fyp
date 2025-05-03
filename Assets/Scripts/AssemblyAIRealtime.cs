@@ -5,6 +5,7 @@ using UnityEngine;
 using Meta.Net.NativeWebSocket;
 using System.Text;
 using System.Threading.Tasks;
+using Oculus.Interaction.HandGrab;
 using UnityEngine.InputSystem;
 
 public class AssemblyAIRealtime : MonoBehaviour
@@ -30,6 +31,10 @@ public class AssemblyAIRealtime : MonoBehaviour
         
         // var inputActions = new InputSystem_Actions();
         // inputActions.UI.Enable();
+        
+        var grabInteractable = GetComponent<HandGrabInteractable>();
+        grabInteractable.WhenSelect.AddListener(OnGrabStart);
+        grabInteractable.WhenUnselect.AddListener(OnGrabEnd);
     }
 
     private async Task ConnectToAssemblyAI()

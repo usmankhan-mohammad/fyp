@@ -54,7 +54,7 @@
     },
     "com.meta.xr.sdk.interaction": {
       "version": "76.0.0",
-      "depth": 1,
+      "depth": 0,
       "source": "registry",
       "dependencies": {
         "com.unity.ugui": "1.0.0",
@@ -278,7 +278,7 @@
     },
     "com.unity.textmeshpro": {
       "version": "5.0.0",
-      "depth": 2,
+      "depth": 1,
       "source": "builtin",
       "dependencies": {
         "com.unity.ugui": "2.0.0"
