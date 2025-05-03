@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Oculus.Interaction.HandGrab;
 using UnityEngine.InputSystem;
+using System.Linq;
 
 public class AssemblyAIRealtime : MonoBehaviour
 {
@@ -23,6 +24,9 @@ public class AssemblyAIRealtime : MonoBehaviour
     private string transcriptBuffer = "";
     private readonly object transcriptLock = new object();
     // private InputSystem_Actions inputActions;
+
+    private bool isPaused = false;
+    public TMPro.TextMeshProUGUI pauseButtonText;
     
 
     void Start()
@@ -96,15 +100,18 @@ public class AssemblyAIRealtime : MonoBehaviour
         {
             Debug.Log($"[MouseScroll] Scroll value: {Mouse.current.scroll.ReadValue().y}");
         }
-        lock (transcriptLock)
+        if (!isPaused)
         {
-            if (!string.IsNullOrEmpty(transcriptBuffer))
+            lock (transcriptLock)
             {
-                subtitleText.text = transcriptBuffer;
-                transcriptBuffer = "";
-                if (signDisplayUI != null)
+                if (!string.IsNullOrEmpty(transcriptBuffer))
                 {
-                    DisplaySignsFor(subtitleText.text);
+                    subtitleText.text = transcriptBuffer;
+                    transcriptBuffer = "";
+                    if (signDisplayUI != null)
+                    {
+                        DisplaySignsFor(subtitleText.text);
+                    }
                 }
             }
         }
@@ -123,6 +130,12 @@ public class AssemblyAIRealtime : MonoBehaviour
 
         while (true)
         {
+            if (isPaused)
+            {
+                yield return new WaitForSeconds(0.1f);
+                continue;
+            }
+
             byte[] chunk = micRecorder.GetMicDataAsPCM();
             if (chunk != null && chunk.Length > 0)
             {
@@ -146,7 +159,7 @@ public class AssemblyAIRealtime : MonoBehaviour
 
     void DisplaySignsFor(string text)
     {
-        List<Sprite> signsToShow = new List<Sprite>();
+        List<(Sprite, string)> signsToShow = new List<(Sprite, string)>();
         Debug.Log($"[DisplaySignsFor] Input text: {text}");
 
         text = text.ToLower().Trim();
@@ -159,14 +172,13 @@ public class AssemblyAIRealtime : MonoBehaviour
         {
             bool matched = false;
 
-            // Try to find the longest matching phrase starting from index i
             for (int len = words.Count - i; len > 0; len--)
             {
                 string segment = string.Join(" ", words.GetRange(i, len));
                 if (SignManager.Instance.TryGetPhrase(segment, out var phraseSprite))
                 {
                     Debug.Log($"[DisplaySignsFor] Found phrase: {segment}");
-                    signsToShow.Add(phraseSprite);
+                    signsToShow.Add((phraseSprite, segment));
                     i += len;
                     matched = true;
                     break;
@@ -181,7 +193,7 @@ public class AssemblyAIRealtime : MonoBehaviour
                 if (SignManager.Instance.TryGetSign(word, out var wordSprite))
                 {
                     Debug.Log($"[DisplaySignsFor] Found word: {word}");
-                    signsToShow.Add(wordSprite);
+                    signsToShow.Add((wordSprite, word));
                 }
                 else
                 {
@@ -189,7 +201,7 @@ public class AssemblyAIRealtime : MonoBehaviour
                     if (fingerSpelling.Count > 0)
                     {
                         Debug.Log($"[DisplaySignsFor] Using fingerspelling for: {word}");
-                        signsToShow.AddRange(fingerSpelling);
+                        signsToShow.AddRange(fingerSpelling.Select(sprite => (sprite, word)));
                     }
                     else
                     {
@@ -202,6 +214,12 @@ public class AssemblyAIRealtime : MonoBehaviour
         }
 
         signDisplayUI.DisplaySigns(signsToShow);
+    }
+
+    public void TogglePause()
+    {
+        isPaused = !isPaused;
+        pauseButtonText.text = isPaused ? "Unpause" : "Pause";
     }
 
     private async void OnApplicationQuit()

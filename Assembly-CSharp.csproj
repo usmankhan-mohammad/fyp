@@ -78,12 +78,14 @@
     <Compile Include="Assets/Scripts/SignManager.cs" />
     <Compile Include="Assets/Scripts/SignPanelGrabHandler.cs" />
     <Compile Include="Assets/Scripts/MicTest.cs" />
+    <Compile Include="Assets/Scripts/SignDisplayMetadata.cs" />
+    <Compile Include="Assets/Scripts/TranslationSaver.cs" />
     <Compile Include="Assets/Scripts/AssemblyAIRealtime.cs" />
     <Compile Include="Assets/TutorialInfo/Scripts/Readme.cs" />
     <Compile Include="Assets/Scripts/DisableGrabbableOnUIHover.cs" />
     <Compile Include="Assets/Scripts/SignDisplayUI.cs" />
     <Compile Include="Assets/Scripts/MicrophoneRecorder.cs" />
-    <Compile Include="Assets/Scripts/SignTestRunner.cs" />
+    <Compile Include="Assets/Scripts/ButtonHoverScaler.cs" />
     <Compile Include="Assets/Scripts/ManualSignLibrary.cs" />
     <Compile Include="Assets/Scripts/UIHoverZoom.cs" />
     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
@@ -1167,6 +1169,9 @@
     </Reference>
     <Reference Include="AssistantVoiceCommandCommon">
       <HintPath>/Users/usman/Desktop/fyp/Library/ScriptAssemblies/AssistantVoiceCommandCommon.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+      <HintPath>/Users/usman/Desktop/fyp/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Meta.XR.Guides.Editor">
       <HintPath>/Users/usman/Desktop/fyp/Library/ScriptAssemblies/Meta.XR.Guides.Editor.dll</HintPath>

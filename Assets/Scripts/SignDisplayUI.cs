@@ -10,20 +10,25 @@ public class SignDisplayUI : MonoBehaviour
 
     public ScrollRect scrollRect; // drag in the ScrollRect from the Inspector
 
-    public void DisplaySigns(List<Sprite> signs)
+    public void DisplaySigns(List<(Sprite sprite, string originalWord)> signs)
     {
         foreach (Transform child in contentPanel)
             Destroy(child.gameObject);
 
-        foreach (var sprite in signs)
+        foreach (var pair in signs)
         {
             var go = Instantiate(signImagePrefab, contentPanel);
             var img = go.GetComponent<Image>();
-            img.sprite = sprite;
+            img.sprite = pair.sprite;
             img.preserveAspect = true;
+
+            var metadata = go.AddComponent<SignDisplayMetadata>();
+            metadata.originalWord = pair.originalWord;
+            metadata.mappedSign = pair.sprite.name;
+
             var rt = img.GetComponent<RectTransform>();
             float panelHeight = ((RectTransform)contentPanel).rect.height;
-            float minHeight = 300; // or whatever minimum you prefer
+            float minHeight = 300;
             float dynamicHeight = Mathf.Max(minHeight, panelHeight * 0.9f);
             rt.sizeDelta = new Vector2(rt.sizeDelta.x, dynamicHeight);
         }
