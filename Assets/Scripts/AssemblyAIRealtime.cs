@@ -219,7 +219,23 @@ public class AssemblyAIRealtime : MonoBehaviour
     public void TogglePause()
     {
         isPaused = !isPaused;
-        pauseButtonText.text = isPaused ? "Unpause" : "Pause";
+
+        Debug.Log(isPaused ? "[TogglePause] Speech recognition paused." : "[TogglePause] Speech recognition resumed.");
+
+        if (pauseButtonText != null)
+        {
+            pauseButtonText.text = isPaused ? "Unpause Speech Recognition" : "Pause Speech Recognition";
+        }
+
+        if (!isPaused)
+        {
+            // If unpausing and WebSocket is not connected, reconnect
+            if (websocket == null || websocket.State != WebSocketState.Open)
+            {
+                Debug.Log("[TogglePause] Reconnecting WebSocket...");
+                _ = ConnectToAssemblyAI(); // fire-and-forget
+            }
+        }
     }
 
     private async void OnApplicationQuit()

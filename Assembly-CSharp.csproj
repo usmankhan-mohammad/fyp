@@ -87,6 +87,7 @@
     <Compile Include="Assets/Scripts/MicrophoneRecorder.cs" />
     <Compile Include="Assets/Scripts/ButtonHoverScaler.cs" />
     <Compile Include="Assets/Scripts/ManualSignLibrary.cs" />
+    <Compile Include="Assets/Scripts/ExitHandler.cs" />
     <Compile Include="Assets/Scripts/UIHoverZoom.cs" />
     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
     <None Include="Assets/Packages/Grpc.Core.2.46.6/lib/netstandard2.0/Grpc.Core.xml" />
