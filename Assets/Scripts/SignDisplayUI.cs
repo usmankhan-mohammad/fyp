@@ -3,13 +3,19 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 
+// Responsible for dynamically displaying BSL sign images in the UI
+// Instantiates sign prefabs based on a given list and adjusts layout and scrolling behavior accordingly
 public class SignDisplayUI : MonoBehaviour
 {
-    public GameObject signImagePrefab;  // Assign your prefab here
-    public Transform contentPanel;      // Drag in SignScrollContent
+    public GameObject signImagePrefab;  // SignImage prefab
+    public Transform contentPanel;      // SignScrollContent
 
-    public ScrollRect scrollRect; // drag in the ScrollRect from the Inspector
+    public ScrollRect scrollRect; // ScrollRect
 
+    // Clears the current content panel and populates it with sign images based on the provided list
+    // Each sign prefab is configured with its corresponding sprite and metadata
+    // Resizes each image based on the content panel height and ensures aspect ratio is preserved
+    // Finally, initiates a coroutine to auto-scroll to the start of the list
     public void DisplaySigns(List<(Sprite sprite, string originalWord)> signs)
     {
         foreach (Transform child in contentPanel)
@@ -33,10 +39,12 @@ public class SignDisplayUI : MonoBehaviour
             rt.sizeDelta = new Vector2(rt.sizeDelta.x, dynamicHeight);
         }
 
-        // 🧠 Force scroll to the left after layout updates
+        // Force scroll to the left after layout updates
         StartCoroutine(ScrollToStart());
     }
 
+    // Coroutine that ensures the scroll view resets to the start position after UI layout updates
+    // This is done one frame after changes to ensure proper layout timing
     private IEnumerator ScrollToStart()
     {
         // Wait a frame for layout system to update

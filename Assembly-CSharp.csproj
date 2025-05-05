@@ -1171,11 +1171,11 @@
     <Reference Include="AssistantVoiceCommandCommon">
       <HintPath>/Users/usman/Desktop/fyp/Library/ScriptAssemblies/AssistantVoiceCommandCommon.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>/Users/usman/Desktop/fyp/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Meta.XR.Guides.Editor">
       <HintPath>/Users/usman/Desktop/fyp/Library/ScriptAssemblies/Meta.XR.Guides.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+      <HintPath>/Users/usman/Desktop/fyp/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.AI.Navigation.Editor.ConversionSystem">
       <HintPath>/Users/usman/Desktop/fyp/Library/ScriptAssemblies/Unity.AI.Navigation.Editor.ConversionSystem.dll</HintPath>

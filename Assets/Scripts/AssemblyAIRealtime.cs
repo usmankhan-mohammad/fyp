@@ -9,6 +9,9 @@ using Oculus.Interaction.HandGrab;
 using UnityEngine.InputSystem;
 using System.Linq;
 
+// Handles real-time speech-to-text transcription using AssemblyAI's WebSocket API.
+// Captures microphone input, sends it for transcription, receives results,
+// and passes them to a UI for display and BSL sign translation.
 public class AssemblyAIRealtime : MonoBehaviour
 {
     public MicrophoneRecorder micRecorder;
@@ -18,25 +21,24 @@ public class AssemblyAIRealtime : MonoBehaviour
     private WebSocket websocket;
     private bool isConnected = false;
     
-    // private string fullTranscript = "";
     public TMPro.TextMeshProUGUI subtitleText;
 
     private string transcriptBuffer = "";
     private readonly object transcriptLock = new object();
-    // private InputSystem_Actions inputActions;
 
     private bool isPaused = false;
     public TMPro.TextMeshProUGUI pauseButtonText;
     
 
+    // Initiates WebSocket connection to AssemblyAI on application start.
     void Start()
     {
         _ = ConnectToAssemblyAI();
         
-        // var inputActions = new InputSystem_Actions();
-        // inputActions.UI.Enable();
     }
 
+    // Establishes WebSocket connection to AssemblyAI API using provided API key.
+    // Configures handlers for opening, messaging, errors, and closing.
     private async Task ConnectToAssemblyAI()
     {
         string url = "wss://api.assemblyai.com/v2/realtime/ws?sample_rate=16000";
@@ -62,6 +64,8 @@ public class AssemblyAIRealtime : MonoBehaviour
         await websocket.Connect();
     }
     
+    // Parses incoming messages from AssemblyAI's WebSocket.
+    // Extracts final transcriptions and updates the internal buffer.
     private void OnWebSocketMessage(byte[] bytes, int offset, int length)
     {
         Task.Run(() =>
@@ -93,6 +97,7 @@ public class AssemblyAIRealtime : MonoBehaviour
         });
     }
 
+    // Updates subtitle display if not paused. Clears buffer and triggers sign rendering.
     void Update()
     {
         // Debug log for mouse scroll value
@@ -117,6 +122,7 @@ public class AssemblyAIRealtime : MonoBehaviour
         }
     }
 
+    // Class used for deserializing transcript messages from AssemblyAI
     [Serializable]
     private class TranscriptMessage
     {
@@ -124,6 +130,8 @@ public class AssemblyAIRealtime : MonoBehaviour
         public string text;
     }
 
+    // Continuously captures audio from the microphone and sends it to AssemblyAI as base64-encoded PCM chunks.
+    // Pauses when transcription is paused.
     IEnumerator SendAudioChunks()
     {
         Debug.Log("SendAudioChunks coroutine started");
@@ -157,6 +165,8 @@ public class AssemblyAIRealtime : MonoBehaviour
         }
     }
 
+    // Translates given transcript text to corresponding BSL signs
+    // Prioritizes phrases, then words, then falls back to fingerspelling
     void DisplaySignsFor(string text)
     {
         List<(Sprite, string)> signsToShow = new List<(Sprite, string)>();
@@ -216,6 +226,8 @@ public class AssemblyAIRealtime : MonoBehaviour
         signDisplayUI.DisplaySigns(signsToShow);
     }
 
+    // Toggles the pause state of speech recognition. When paused, audio is no longer streamed to AssemblyAI
+    // Reconnection is attempted if unpaused and the WebSocket is not currently connected
     public void TogglePause()
     {
         isPaused = !isPaused;
@@ -238,6 +250,7 @@ public class AssemblyAIRealtime : MonoBehaviour
         }
     }
 
+    // Ensures the WebSocket connection is closed gracefully on application quit.
     private async void OnApplicationQuit()
     {
         if (websocket != null)
