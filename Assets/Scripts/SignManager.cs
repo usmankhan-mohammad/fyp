@@ -185,4 +185,11 @@ public class SignManager : MonoBehaviour
             synonymMap.Add(key, value);
     }
     
+    public Sprite GetSignSpriteForWord(string word) // For testing
+    {
+        if (wordToSign.TryGetValue(word.ToLower(), out var sprite))
+            return sprite;
+        return null;
+    }
+    
 }

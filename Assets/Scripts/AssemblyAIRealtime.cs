@@ -138,12 +138,6 @@ public class AssemblyAIRealtime : MonoBehaviour
 
         while (true)
         {
-            if (isPaused)
-            {
-                yield return new WaitForSeconds(0.1f);
-                continue;
-            }
-
             byte[] chunk = micRecorder.GetMicDataAsPCM();
             if (chunk != null && chunk.Length > 0)
             {
@@ -239,8 +233,14 @@ public class AssemblyAIRealtime : MonoBehaviour
             pauseButtonText.text = isPaused ? "Unpause Speech Recognition" : "Pause Speech Recognition";
         }
 
-        if (!isPaused)
+        if (isPaused)
         {
+            micRecorder.StopRecording();
+        }
+        else
+        {
+            micRecorder.StartRecording();
+
             // If unpausing and WebSocket is not connected, reconnect
             if (websocket == null || websocket.State != WebSocketState.Open)
             {
@@ -257,5 +257,10 @@ public class AssemblyAIRealtime : MonoBehaviour
         {
             await websocket.Close();
         }
+    }
+    
+    public bool GetIsPaused() // For tests
+    {
+        return isPaused;
     }
 }
