@@ -2,6 +2,8 @@ using UnityEngine;
 using System;
 using System.IO;
 
+// Captures microphone input from the default audio device in Unity.
+// Continuously records audio into a looping AudioClip and provides audio data as 16-bit PCM byte arrays for real-time streaming.
 public class MicrophoneRecorder : MonoBehaviour
 {
     public int sampleRate = 16000;
@@ -9,11 +11,14 @@ public class MicrophoneRecorder : MonoBehaviour
     private string micDevice;
     private int lastSamplePosition = 0;
 
+    // Initializes microphone recording
     void Start()
     {
         StartMicrophone();
     }
 
+    // Starts the microphone using the default device and sets up a looping AudioClip buffer
+    // If no microphones are found or recording fails, logs error messages
     void StartMicrophone()
     {
         if (Microphone.devices.Length == 0)
@@ -42,6 +47,8 @@ public class MicrophoneRecorder : MonoBehaviour
         Debug.Log("🎤 Microphone started.");
     }
 
+    // Returns new audio data captured from the microphone since the last call as a 16-bit PCM byte array
+    // Handles looping by resetting sample index if necessary.
     public byte[] GetMicDataAsPCM()
     {
         if (micClip == null) return null;
@@ -66,6 +73,8 @@ public class MicrophoneRecorder : MonoBehaviour
         return ConvertToPCM16(samples);
     }
 
+    // Converts a float array of audio samples (range -1.0f to 1.0f) to 16-bit PCM format
+    // Each float is clamped and scaled to a signed short, then written in little endian byte order
     byte[] ConvertToPCM16(float[] samples)
     {
         byte[] pcm = new byte[samples.Length * 2];

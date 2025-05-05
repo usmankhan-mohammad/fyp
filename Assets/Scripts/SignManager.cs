@@ -5,26 +5,32 @@ using System.Linq;
 
 public class SignManager : MonoBehaviour
 {
+    // Manages the loading, storage, and retrieval of BSL sign and fingerspelling sprites.
+    // Supports phrase matching, synonym resolution, and fallback to fingerspelling when no sign is available.
+    
     // Singleton instance so other scripts can easily access this
     public static SignManager Instance;
 
-    // Folder path to main sign images (e.g., "BSL" under Resources)
+    // Folder path to sign images
     public string signsFolder = "BSL";
 
-    // Folder path to fingerspelling alphabet (e.g., "BSL/alphabet" under Resources)
+    // Folder path to fingerspelling alphabet 
     public string alphabetFolder = "BSL/alphabet";
 
     // If true, signs will be horizontally flipped for left-handed users
+    // //NOT USED because sign images include text so they cannot be flipped
     public bool isLeftHanded = false;
 
     // Dictionary mapping words to sign images (e.g., "hello" -> hello.png)
     private Dictionary<string, Sprite> wordToSign = new Dictionary<string, Sprite>();
 
-    // Dictionary mapping letters to fingerspelling sprites (e.g., 'h' -> h.png)
+    // Dictionary mapping letters to fingerspelling sprites
     private Dictionary<char, Sprite> charToFingerspell = new Dictionary<char, Sprite>();
 
+    // Dictionary mapping phrases to sign images
     private Dictionary<string, Sprite> phraseToSign = new Dictionary<string, Sprite>();
 
+    // Dictionary mapping synonyms to sign images
     private Dictionary<string, string> synonymMap = new Dictionary<string, string>();
 
     void Awake()
@@ -43,14 +49,14 @@ public class SignManager : MonoBehaviour
 
     void LoadSigns()
     {
-        // Load all .png files from Resources/BSL folder
+        // Load all .png files
         Sprite[] signs = Resources.LoadAll<Sprite>(signsFolder);
         foreach (var sign in signs)
         {
-            // Remove ".png" extension and lowercase the name to normalize keys
+            // Remove ".png" extension and lowercase the name
             string key = Path.GetFileNameWithoutExtension(sign.name).ToLower();
 
-            // Add sign to dictionary if it's not already present
+            // Add sign to dictionary if it's not already there
             if (!wordToSign.ContainsKey(key))
                 wordToSign.Add(key, sign);
         }
@@ -58,7 +64,7 @@ public class SignManager : MonoBehaviour
 
     void LoadAlphabet()
     {
-        // Load all letter sprites from Resources/BSL/alphabet
+        // Load all letter sprites
         Sprite[] letters = Resources.LoadAll<Sprite>(alphabetFolder);
         foreach (var letter in letters)
         {
@@ -112,12 +118,14 @@ public class SignManager : MonoBehaviour
     }
 
     // Optionally flip the sprite horizontally if left-handed mode is on
+    // NOT USED BECAUSE SIGN IMAGES INCLUDE TEXT - could be useful with different imgset
     public Sprite MaybeFlip(Sprite sprite)
     {
         return isLeftHanded ? FlipSprite(sprite) : sprite;
     }
 
     // Create a horizontally flipped copy of a sprite (for left-handed display)
+    // NOT USED BECAUSE SIGN IMAGES INCLUDE TEXT - could be useful with different imgset
     private Sprite FlipSprite(Sprite original)
     {
         // Create new texture the same size as the original
@@ -140,6 +148,7 @@ public class SignManager : MonoBehaviour
         return Sprite.Create(flipped, original.rect, new Vector2(0.5f, 0.5f));
     }
 
+    // Adds a new phrase and its associated sprite to the phrase-to-sign dictionary
     public void RegisterPhrase(string phraseKey, Sprite phraseSprite)
     {
         string key = phraseKey.ToLower().Trim();
@@ -149,6 +158,7 @@ public class SignManager : MonoBehaviour
         }
     }
     
+    // Adds a new word and its associated sprite to the word-to-sign dictionary.
     public void RegisterWord(string word, Sprite sprite)
     {
         string key = word.ToLower().Trim();
@@ -156,6 +166,7 @@ public class SignManager : MonoBehaviour
             wordToSign.Add(key, sprite);
     }
 
+    // Checks if an exact phrase match exists in the phrase dictionary
     public bool TryGetPhrase(string subtitle, out Sprite phraseSign)
     {
         string key = subtitle.ToLower().Trim();
@@ -164,6 +175,7 @@ public class SignManager : MonoBehaviour
         return found;
     }
 
+    // Adds a synonym and maps it to its actual word
     public void RegisterSynonym(string synonym, string canonicalWord)
     {
         string key = synonym.ToLower().Trim();

@@ -6,6 +6,8 @@ using TMPro;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
+// Handles saving of subtitle transcriptions and corresponding BSL sign images locally on device
+// Stores text in a .txt file and images as .png files under a timestamped folder in Application.persistentDataPath
 public class TranslationSaver : MonoBehaviour
 {
     public TMP_Text subtitleText;
@@ -14,6 +16,10 @@ public class TranslationSaver : MonoBehaviour
 
     private string originalSaveButtonText;
 
+    // Initiates the save process. If no sign images are found, exits early
+    // Creates a timestamped folder and writes the subtitle and each displayed sign to disk
+    // Categorises saved signs into subfolders (e.g., alphabet, numbers, phrases) where applicable
+    // Updates the Save button text and color temporarily to provide visual feedback
     public void SaveTranslation()
     {
         if (signImageContainer.childCount == 0)
@@ -51,6 +57,8 @@ public class TranslationSaver : MonoBehaviour
                 Rect rect = img.sprite.rect;
                 Texture2D sourceTex = img.sprite.texture;
 
+                // Creates a new Texture2D from the sign sprite's source texture and encodes it to PNG.
+                // Saves the PNG to the generated folder with indexed filenames for order preservation.
                 Texture2D texture = new Texture2D((int)rect.width, (int)rect.height, TextureFormat.RGBA32, false);
                 texture.SetPixels(sourceTex.GetPixels((int)rect.x, (int)rect.y, (int)rect.width, (int)rect.height));
                 texture.Apply();
@@ -88,6 +96,7 @@ public class TranslationSaver : MonoBehaviour
         }
     }
 
+    // Restores the original text and color of the Save button after a short delay
     private void RestoreSaveButtonText()
     {
         if (saveButtonText != null)
