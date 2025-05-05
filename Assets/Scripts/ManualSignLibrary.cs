@@ -42,4 +42,5 @@ public static class ManualSignLibrary
         manager.RegisterSynonym("yo", "hello");
         
     }
+    
 }

@@ -16,6 +16,25 @@ public class MicrophoneRecorder : MonoBehaviour
     {
         StartMicrophone();
     }
+    
+    public void StopRecording()
+    {
+        if (Microphone.IsRecording(micDevice))
+        {
+            Debug.Log("🛑 Stopping microphone...");
+            Microphone.End(micDevice);
+            micClip = null;
+        }
+    }
+
+    public void StartRecording()
+    {
+        if (!Microphone.IsRecording(micDevice))
+        {
+            Debug.Log("▶️ Restarting microphone...");
+            StartMicrophone();
+        }
+    }
 
     // Starts the microphone using the default device and sets up a looping AudioClip buffer
     // If no microphones are found or recording fails, logs error messages
