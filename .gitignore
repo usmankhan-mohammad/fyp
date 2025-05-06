@@ -16,5 +16,5 @@
 *.suo
 *.userprefs
 
-# Google Cloud API Key
+# AssemblyAI API Key
 Assets/StreamingAssets/key.json
