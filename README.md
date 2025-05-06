@@ -12,7 +12,9 @@ https://www.british-sign.co.uk/british-sign-language/dictionary/
 - Any saved translations will be stored on your device locally. The location will be specified in the console, but for Mac it is ~/Library/Application Support/CompanyName/ProductName
 
 **HOW TO USE WITH A META QUEST HEADSET:**
-- Download the latest build version (.apk)
+- Download this project as a .zip
+- Unzip and run on Unity 6000.0.41f1
+- Build and save to your device
 - Download CX File Explorer (.apk) from https://cxfileexplorer.com/
 - Create a Meta developer account https://developers.meta.com/horizon/resources/publish-account-management-intro/
 - Download Meta Quest Developer Hub and activate developer mode on your device https://developers.meta.com/horizon/blog/meta-quest-developer-hub-mqdh-3-3/?locale=en_GB
