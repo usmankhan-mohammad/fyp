@@ -13,7 +13,7 @@ https://www.british-sign.co.uk/british-sign-language/dictionary/
 
 **HOW TO USE WITH A META QUEST HEADSET:**
 - Download the latest build version (.apk)
-- Download CX File Explorer (.apk) from https://www.apkmirror.com/apk/unknown/cx-file-explorer/
+- Download CX File Explorer (.apk) from https://cxfileexplorer.com/
 - Create a Meta developer account https://developers.meta.com/horizon/resources/publish-account-management-intro/
 - Download Meta Quest Developer Hub and activate developer mode on your device https://developers.meta.com/horizon/blog/meta-quest-developer-hub-mqdh-3-3/?locale=en_GB
 - Connect your Meta Quest to your computer
